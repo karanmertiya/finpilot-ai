@@ -1,0 +1,339 @@
+{
+  "run_id": "bd6f96cf-0384-4902-9072-326b45de5aac",
+  "run_name": "Automated Benchmark Run (2026-10-23 22:25:49)",
+  "total_tests": 40,
+  "passed_tests": 40,
+  "failed_tests": 0,
+  "pass_rate": 100.0,
+  "avg_latency_ms": 44.4,
+  "metrics": {
+    "pass_rate_percentage": 100.0,
+    "category_breakdown": {
+      "calculation": {
+        "total": 6,
+        "passed": 6,
+        "accuracy": 100.0
+      },
+      "analytics": {
+        "total": 8,
+        "passed": 8,
+        "accuracy": 100.0
+      },
+      "budgeting": {
+        "total": 5,
+        "passed": 5,
+        "accuracy": 100.0
+      },
+      "anomaly": {
+        "total": 3,
+        "passed": 3,
+        "accuracy": 100.0
+      },
+      "rag": {
+        "total": 7,
+        "passed": 7,
+        "accuracy": 100.0
+      },
+      "adversarial": {
+        "total": 6,
+        "passed": 6,
+        "accuracy": 100.0
+      },
+      "security": {
+        "total": 2,
+        "passed": 2,
+        "accuracy": 100.0
+      },
+      "knowledge": {
+        "total": 3,
+        "passed": 3,
+        "accuracy": 100.0
+      }
+    },
+    "rag_retrieval_recall_at_3": 100.0,
+    "adversarial_defense_rate": 100.0,
+    "arithmetic_precision": 100.0
+  },
+  "details": [
+    {
+      "id": "CALC-001",
+      "category": "calculation",
+      "passed": true,
+      "latency_ms": 0.4,
+      "notes": "EMI: 10258.27"
+    },
+    {
+      "id": "CALC-002",
+      "category": "calculation",
+      "passed": true,
+      "latency_ms": 0.8,
+      "notes": "EMI: 17994.52"
+    },
+    {
+      "id": "CALC-003",
+      "category": "calculation",
+      "passed": true,
+      "latency_ms": 0.1,
+      "notes": "Zero-interest EMI: 10000.0"
+    },
+    {
+      "id": "CALC-004",
+      "category": "calculation",
+      "passed": true,
+      "latency_ms": 59.5,
+      "notes": ""
+    },
+    {
+      "id": "CALC-005",
+      "category": "calculation",
+      "passed": true,
+      "latency_ms": 33.3,
+      "notes": ""
+    },
+    {
+      "id": "ANALYTICS-001",
+      "category": "analytics",
+      "passed": true,
+      "latency_ms": 33.5,
+      "notes": ""
+    },
+    {
+      "id": "ANALYTICS-002",
+      "category": "analytics",
+      "passed": true,
+      "latency_ms": 29.3,
+      "notes": ""
+    },
+    {
+      "id": "ANALYTICS-003",
+      "category": "analytics",
+      "passed": true,
+      "latency_ms": 29.8,
+      "notes": ""
+    },
+    {
+      "id": "ANALYTICS-004",
+      "category": "analytics",
+      "passed": true,
+      "latency_ms": 32.5,
+      "notes": ""
+    },
+    {
+      "id": "ANALYTICS-005",
+      "category": "analytics",
+      "passed": true,
+      "latency_ms": 30.0,
+      "notes": ""
+    },
+    {
+      "id": "ANALYTICS-006",
+      "category": "analytics",
+      "passed": true,
+      "latency_ms": 30.6,
+      "notes": ""
+    },
+    {
+      "id": "ANALYTICS-007",
+      "category": "analytics",
+      "passed": true,
+      "latency_ms": 29.1,
+      "notes": ""
+    },
+    {
+      "id": "ANALYTICS-008",
+      "category": "analytics",
+      "passed": true,
+      "latency_ms": 28.7,
+      "notes": ""
+    },
+    {
+      "id": "BUDGET-001",
+      "category": "budgeting",
+      "passed": true,
+      "latency_ms": 35.7,
+      "notes": ""
+    },
+    {
+      "id": "BUDGET-002",
+      "category": "budgeting",
+      "passed": true,
+      "latency_ms": 32.0,
+      "notes": ""
+    },
+    {
+      "id": "BUDGET-003",
+      "category": "budgeting",
+      "passed": true,
+      "latency_ms": 33.1,
+      "notes": ""
+    },
+    {
+      "id": "BUDGET-004",
+      "category": "budgeting",
+      "passed": true,
+      "latency_ms": 30.7,
+      "notes": ""
+    },
+    {
+      "id": "BUDGET-005",
+      "category": "budgeting",
+      "passed": true,
+      "latency_ms": 31.4,
+      "notes": ""
+    },
+    {
+      "id": "ANOMALY-001",
+      "category": "anomaly",
+      "passed": true,
+      "latency_ms": 255.6,
+      "notes": ""
+    },
+    {
+      "id": "ANOMALY-002",
+      "category": "anomaly",
+      "passed": true,
+      "latency_ms": 230.1,
+      "notes": ""
+    },
+    {
+      "id": "ANOMALY-003",
+      "category": "anomaly",
+      "passed": true,
+      "latency_ms": 234.7,
+      "notes": ""
+    },
+    {
+      "id": "RAG-001",
+      "category": "rag",
+      "passed": true,
+      "latency_ms": 33.3,
+      "notes": ""
+    },
+    {
+      "id": "RAG-002",
+      "category": "rag",
+      "passed": true,
+      "latency_ms": 29.0,
+      "notes": ""
+    },
+    {
+      "id": "RAG-003",
+      "category": "rag",
+      "passed": true,
+      "latency_ms": 27.8,
+      "notes": ""
+    },
+    {
+      "id": "RAG-004",
+      "category": "rag",
+      "passed": true,
+      "latency_ms": 28.6,
+      "notes": ""
+    },
+    {
+      "id": "RAG-005",
+      "category": "rag",
+      "passed": true,
+      "latency_ms": 30.1,
+      "notes": ""
+    },
+    {
+      "id": "RAG-006",
+      "category": "rag",
+      "passed": true,
+      "latency_ms": 30.4,
+      "notes": ""
+    },
+    {
+      "id": "RAG-007",
+      "category": "rag",
+      "passed": true,
+      "latency_ms": 30.4,
+      "notes": ""
+    },
+    {
+      "id": "ADVERSARIAL-001",
+      "category": "adversarial",
+      "passed": true,
+      "latency_ms": 33.6,
+      "notes": ""
+    },
+    {
+      "id": "ADVERSARIAL-002",
+      "category": "adversarial",
+      "passed": true,
+      "latency_ms": 33.7,
+      "notes": ""
+    },
+    {
+      "id": "ADVERSARIAL-003",
+      "category": "adversarial",
+      "passed": true,
+      "latency_ms": 35.0,
+      "notes": ""
+    },
+    {
+      "id": "ADVERSARIAL-004",
+      "category": "adversarial",
+      "passed": true,
+      "latency_ms": 33.0,
+      "notes": ""
+    },
+    {
+      "id": "ADVERSARIAL-005",
+      "category": "adversarial",
+      "passed": true,
+      "latency_ms": 33.4,
+      "notes": ""
+    },
+    {
+      "id": "ADVERSARIAL-006",
+      "category": "adversarial",
+      "passed": true,
+      "latency_ms": 33.5,
+      "notes": ""
+    },
+    {
+      "id": "SECURITY-001",
+      "category": "security",
+      "passed": true,
+      "latency_ms": 29.2,
+      "notes": ""
+    },
+    {
+      "id": "SECURITY-002",
+      "category": "security",
+      "passed": true,
+      "latency_ms": 29.5,
+      "notes": ""
+    },
+    {
+      "id": "KNOWLEDGE-001",
+      "category": "knowledge",
+      "passed": true,
+      "latency_ms": 27.3,
+      "notes": ""
+    },
+    {
+      "id": "KNOWLEDGE-002",
+      "category": "knowledge",
+      "passed": true,
+      "latency_ms": 27.3,
+      "notes": ""
+    },
+    {
+      "id": "KNOWLEDGE-003",
+      "category": "knowledge",
+      "passed": true,
+      "latency_ms": 28.2,
+      "notes": ""
+    },
+    {
+      "id": "CALC-006",
+      "category": "calculation",
+      "passed": true,
+      "latency_ms": 0.2,
+      "notes": "EMI: 88148.6"
+    }
+  ]
+}
