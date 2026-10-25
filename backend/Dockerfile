@@ -7,11 +7,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
     libpq-dev \
     && rm -rf /var/lib/apt/lists/*
-COPY requirements.txt .
-RUN pip install --no-cache-dir --default-timeout=100 -r requirements.txt
 
-COPY . .
+COPY requirements.txt /app/
+RUN pip install --no-cache-dir --default-timeout=100 -r /app/requirements.txt
 
-# Run database migrations and start server
+COPY . /app/backend
+
+ENV PYTHONPATH=/app
+
 EXPOSE 8000
 CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]

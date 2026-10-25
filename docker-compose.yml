@@ -33,6 +33,9 @@ services:
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
       - OPENAI_API_KEY=${OPENAI_API_KEY:-}
       - EMBEDDING_PROVIDER=local
+    volumes:
+      - ./scripts:/app/scripts
+      - ./data:/app/data
     ports:
       - "8000:8000"
     depends_on:
@@ -46,7 +49,7 @@ services:
     container_name: finpilot-frontend
     restart: always
     environment:
-      - NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://4.240.114.82:8000/api/v1}
     ports:
       - "3000:3000"
     depends_on:
