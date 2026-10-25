@@ -1,0 +1,13 @@
+date,amount,type,merchant,category,payment_method,description
+2026-10-01,125000.00,INCOME,Infosys Technologies,Salary,NETBANKING,Monthly Salary October
+2026-10-02,32000.00,EXPENSE,DLF CyberCity Properties,Housing & Rent,NETBANKING,October Apartment Rent
+2026-10-04,2850.00,EXPENSE,D-Mart,Groceries,CARD,Monthly grocery haul
+2026-10-05,540.00,EXPENSE,Swiggy,Food & Dining,UPI,Lunch meal bowl
+2026-10-07,1320.00,EXPENSE,Uber India,Transportation,UPI,Airport ride to T3
+2026-10-10,45000.00,EXPENSE,Apple Store Saket,Shopping,CARD,iPad Air M3 Purchase (Outlier Spike)
+2026-10-12,2800.00,EXPENSE,Tata Power,Utilities,NETBANKING,Electricity Bill
+2026-10-15,950.00,EXPENSE,Zomato,Food & Dining,UPI,Dinner order
+2026-10-18,1200.00,EXPENSE,BluSmart EV,Transportation,UPI,Office commute
+2026-10-20,3500.00,EXPENSE,Apollo Pharmacy,Healthcare,UPI,Winter medications
+2026-10-22,2100.00,EXPENSE,Blinkit,Groceries,UPI,Quick organic grocery staples
+2026-10-24,849.00,EXPENSE,Netflix India,Entertainment,CARD,Monthly subscription

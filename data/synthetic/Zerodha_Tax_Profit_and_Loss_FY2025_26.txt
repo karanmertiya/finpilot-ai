@@ -1,0 +1,29 @@
+ZERODHA BROKING LIMITED - TAX PROFIT & LOSS STATEMENT
+Client ID: ZB91029
+Client Name: Aarav Sharma
+Financial Year: 2025-2026 (Assessment Year: 2026-2027)
+PAN: ABCPS1234F
+
+SUMMARY OF CAPITAL GAINS & EQUITY TRADING:
+1. Short-Term Capital Gains (STCG - Equity & Equity MFs):
+   - Realized Turnover: INR 8,45,200.00
+   - Realized Net Profit: INR 64,800.00
+   - Applicable Tax Rate under Section 111A: 20.0% (Post Union Budget 2024 revision)
+   - Estimated STCG Tax Liability: INR 12,960.00
+
+2. Long-Term Capital Gains (LTCG - Holding > 12 Months):
+   - Total Realized Gain: INR 1,82,500.00
+   - Section 112A Exemption Threshold: INR 1,25,000.00
+   - Taxable Long-Term Capital Gain: INR 57,500.00
+   - Applicable Tax Rate under Section 112A: 12.5% (Post Union Budget 2024 revision)
+   - Estimated LTCG Tax Liability: INR 7,187.50
+
+3. Dividend Income & Tax Deducted at Source (TDS):
+   - Total Gross Dividend Received: INR 14,250.00
+   - TDS Deducted at 10% under Section 194: INR 1,425.00
+   - Net Dividend Credited to Primary Bank: INR 12,825.00
+
+4. Securities Transaction Tax (STT) & Exchange Charges:
+   - Total STT Paid: INR 1,180.00
+   - Brokerage Paid: INR 240.00 (Zero brokerage on Equity Delivery)
+   - Stamp Duty: INR 126.00

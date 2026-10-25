@@ -1,0 +1,13 @@
+date,amount,type,merchant,category,payment_method,description
+2026-10-01,95000.00,INCOME,Tata Consultancy Services,Salary,NETBANKING,Vikram TCS Monthly Salary
+2026-10-01,80000.00,INCOME,HDFC Life Insurance,Salary,NETBANKING,Meera Corporate Salary
+2026-10-02,38000.00,EXPENSE,Prestige Estates Housing,Housing & Rent,NETBANKING,Monthly 3BHK Apartment Rent
+2026-10-04,9800.00,EXPENSE,D-Mart Supermarket,Groceries,CARD,Bulk monthly family groceries
+2026-10-05,24000.00,EXPENSE,Delhi Public School,Entertainment,NETBANKING,Quarterly School Tuition Fees
+2026-10-07,16500.00,EXPENSE,HDFC Bank Car Loan,Transportation,NETBANKING,Hyundai Creta Monthly Car EMI
+2026-10-10,3400.00,EXPENSE,Adani Electricity,Utilities,UPI,Household electricity bill
+2026-10-12,4200.00,EXPENSE,Haldiram's Family Dining,Food & Dining,UPI,Weekend family dinner
+2026-10-15,15000.00,EXPENSE,Tata AIA Life Insurance,Healthcare,NETBANKING,Annual Term Life Insurance Premium
+2026-10-18,2500.00,EXPENSE,Zepto,Groceries,UPI,Quick pantry replenishment
+2026-10-22,6200.00,EXPENSE,Shoppers Stop,Shopping,CARD,Festive apparel & kids wear
+2026-10-24,1999.00,EXPENSE,Airtel Digital TV & Fiber,Utilities,UPI,Broadband and DTH recharge

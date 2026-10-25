@@ -1,0 +1,12 @@
+date,amount,type,merchant,category,payment_method,description
+2026-10-02,145000.00,INCOME,Acme Corp International,Salary,NETBANKING,AI Strategy Consulting Retainer Wire
+2026-10-03,14200.00,EXPENSE,Amazon Web Services,Utilities,CARD,Cloud GPU Cloud Hosting & Inference
+2026-10-05,12000.00,EXPENSE,WeWork BKC Mumbai,Housing & Rent,CARD,Dedicated Desk Coworking Pass
+2026-10-06,2450.00,EXPENSE,Nature's Basket,Groceries,CARD,Gourmet coffee and fruits
+2026-10-08,1850.00,EXPENSE,Blue Tokai Coffee,Food & Dining,UPI,Client catchup meetings
+2026-10-12,85000.00,INCOME,Fintech Labs Singapore,Salary,NETBANKING,Product Advisory Milestone 2
+2026-10-14,8400.00,EXPENSE,Anthropic Claude API,Utilities,CARD,LLM API usage tokens
+2026-10-18,6500.00,EXPENSE,IndiGo Airlines,Transportation,CARD,Mumbai to Bengaluru return flight
+2026-10-21,1200.00,EXPENSE,Uber India,Transportation,UPI,Airport to Koramangala ride
+2026-10-23,78000.00,EXPENSE,Croma Electronics,Shopping,CARD,MacBook Pro M3 Refurbished (Business Asset)
+2026-10-25,1850.00,EXPENSE,PharmEasy,Healthcare,UPI,Health checkup diagnostics
