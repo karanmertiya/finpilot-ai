@@ -2,27 +2,15 @@
 set -e
 export DEBIAN_FRONTEND=noninteractive
 
-echo "=== [1/4] Installing Docker and Prerequisites ==="
-apt-get update -y
-apt-get install -y ca-certificates curl gnupg git
+echo "=== [1/4] Configuring Git and Docker ==="
+git config --global --add safe.directory '*'
 
-install -m 0755 -d /etc/apt/keyrings
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-chmod a+r /etc/apt/keyrings/docker.asc
-
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-
-apt-get update -y
-apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
-systemctl enable --now docker
-usermod -aG docker azureuser
-
-echo "=== [2/4] Cloning FinPilot AI Repository ==="
+echo "=== [2/4] Pulling Latest FinPilot AI Code ==="
 cd /home/azureuser
 if [ -d "finpilot-ai" ]; then
     cd finpilot-ai
-    git pull origin main
+    git fetch origin main
+    git reset --hard origin/main
 else
     git clone https://github.com/karanmertiya/finpilot-ai.git
     cd finpilot-ai
@@ -30,12 +18,18 @@ fi
 
 chown -R azureuser:azureuser /home/azureuser/finpilot-ai
 
-echo "=== [3/4] Building and Starting FinPilot AI Containers ==="
+echo "=== [3/4] Building and Starting Containers ==="
 docker compose down || true
 docker compose up --build -d
 
-echo "=== [4/4] Verifying Containers Status ==="
+echo "Waiting for services to become healthy..."
+sleep 15
+
+echo "=== [4/4] Seeding PostgreSQL Database with Synthetic Indian Data ==="
+docker compose exec -T backend python scripts/seed_data.py || true
+
+echo "=== Container Status ==="
 docker compose ps
 docker ps
 
-echo "FinPilot AI successfully deployed and running on Azure VM!"
+echo "FinPilot AI is LIVE on http://4.240.114.82:3000 !"
