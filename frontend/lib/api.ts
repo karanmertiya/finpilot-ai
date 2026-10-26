@@ -126,7 +126,7 @@ class ApiService {
     const token = await this.ensureAuth();
     const formData = new FormData();
     formData.append('file', file);
-    const res = await fetch(`${API_BASE_URL}/transactions/import-csv`, {
+    const res = await fetch(`${this.baseUrl}/transactions/import-csv`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
       body: formData
