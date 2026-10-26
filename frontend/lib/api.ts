@@ -1,7 +1,23 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+const getApiBaseUrl = (): string => {
+  if (process.env.NEXT_PUBLIC_API_URL && !process.env.NEXT_PUBLIC_API_URL.includes('localhost')) {
+    return process.env.NEXT_PUBLIC_API_URL;
+  }
+  if (typeof window !== 'undefined') {
+    const hostname = window.location.hostname;
+    const protocol = window.location.protocol;
+    if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+      return `${protocol}//${hostname}:8000/api/v1`;
+    }
+  }
+  return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+};
 
 class ApiService {
   private token: string | null = null;
+
+  public get baseUrl(): string {
+    return getApiBaseUrl();
+  }
 
   constructor() {
     if (typeof window !== 'undefined') {
@@ -27,7 +43,7 @@ class ApiService {
     let tok = this.getToken();
     if (!tok) {
       // 1-click auto demo login
-      const res = await fetch(`${API_BASE_URL}/auth/demo-login`, { method: 'POST' });
+      const res = await fetch(`${this.baseUrl}/auth/demo-login`, { method: 'POST' });
       if (res.ok) {
         const data = await res.json();
         this.setToken(data.access_token);
@@ -36,6 +52,7 @@ class ApiService {
     }
     return tok || '';
   }
+
 
   private async request<T>(endpoint: string, options: RequestInit = {}): Promise<T> {
     const token = await this.ensureAuth();
@@ -50,7 +67,7 @@ class ApiService {
       headers['Content-Type'] = 'application/json';
     }
 
-    const res = await fetch(`${API_BASE_URL}${endpoint}`, {
+    const res = await fetch(`${this.baseUrl}${endpoint}`, {
       ...options,
       headers
     });
@@ -63,7 +80,7 @@ class ApiService {
       this.token = null;
       const newToken = await this.ensureAuth();
       headers['Authorization'] = `Bearer ${newToken}`;
-      const retryRes = await fetch(`${API_BASE_URL}${endpoint}`, { ...options, headers });
+      const retryRes = await fetch(`${this.baseUrl}${endpoint}`, { ...options, headers });
       if (!retryRes.ok) throw new Error(`HTTP ${retryRes.status}: ${await retryRes.text()}`);
       return retryRes.json();
     }
@@ -179,7 +196,7 @@ class ApiService {
     const token = await this.ensureAuth();
     const formData = new FormData();
     formData.append('file', file);
-    const res = await fetch(`${API_BASE_URL}/documents/upload`, {
+    const res = await fetch(`${this.baseUrl}/documents/upload`, {
       method: 'POST',
       headers: { Authorization: `Bearer ${token}` },
       body: formData
