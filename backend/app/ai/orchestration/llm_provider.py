@@ -27,7 +27,7 @@ class GeminiProvider(BaseLLMProvider):
 
         payload = {
             "contents": [{"parts": [{"text": full_prompt}]}],
-            "generationConfig": {"temperature": 0.2, "maxOutputTokens": 1024}
+            "generationConfig": {"temperature": 0.2, "maxOutputTokens": 4096}
         }
         
         try:

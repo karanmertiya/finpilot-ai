@@ -14,8 +14,8 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
     if (!text) return null;
 
     const parts: React.ReactNode[] = [];
-    // Match **bold**, `code`, *italic*, and URLs
-    const regex = /(\*\*.*?\*\*|`.*?`|\*[^*\n]+?\*|https?:\/\/[^\s]+)/g;
+    // Match complete **bold**, trailing **unclosed, `code`, *italic*, and URLs
+    const regex = /(\*\*.*?\*\*|\*\*[^*\n]+$|`.*?`|\*[^*\n]+?\*|https?:\/\/[^\s]+)/g;
     let lastIndex = 0;
     let match: RegExpExecArray | null;
 
@@ -25,8 +25,8 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
       }
 
       const token = match[0];
-      if (token.startsWith('**') && token.endsWith('**')) {
-        const inner = token.slice(2, -2);
+      if (token.startsWith('**')) {
+        const inner = token.endsWith('**') && token.length >= 4 ? token.slice(2, -2) : token.slice(2);
         parts.push(
           <strong key={match.index} className="font-semibold text-white">
             {renderInline(inner)}
@@ -115,29 +115,29 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) =
     }
 
     // 3. Table Block (| ... |)
-    if (trimmed.startsWith('|') && trimmed.endsWith('|')) {
+    if (trimmed.startsWith('|')) {
       const tableLines: string[] = [];
-      while (i < lines.length && lines[i].trim().startsWith('|') && lines[i].trim().endsWith('|')) {
+      while (i < lines.length && lines[i].trim().startsWith('|')) {
         tableLines.push(lines[i].trim());
         i++;
       }
 
       if (tableLines.length >= 2) {
-        // Parse header and rows
-        const headerCols = tableLines[0]
-          .slice(1, -1)
-          .split('|')
-          .map((c) => c.trim());
+        // Parse header
+        let headerCols = tableLines[0].split('|').map((c) => c.trim());
+        if (headerCols.length > 0 && headerCols[0] === '') headerCols.shift();
+        if (headerCols.length > 0 && headerCols[headerCols.length - 1] === '') headerCols.pop();
         
         // Check if row 1 is separator (e.g. :--- | ---:)
-        const hasSeparator = /^[\s|:-]+$/.test(tableLines[1]);
+        const hasSeparator = /^[:\-\s\|]+$/.test(tableLines[1]);
         const startRow = hasSeparator ? 2 : 1;
-        const bodyRows = tableLines.slice(startRow).map((rowStr) =>
-          rowStr
-            .slice(1, -1)
-            .split('|')
-            .map((c) => c.trim())
-        );
+        const bodyRows = tableLines.slice(startRow).map((rowStr) => {
+          let cells = rowStr.split('|').map((c) => c.trim());
+          if (cells.length > 0 && cells[0] === '') cells.shift();
+          if (cells.length > 0 && cells[cells.length - 1] === '') cells.pop();
+          while (cells.length < headerCols.length) cells.push('');
+          return cells.slice(0, headerCols.length);
+        });
 
         blocks.push(
           <div key={`table-${i}`} className="overflow-x-auto my-3 rounded-xl border border-slate-800 bg-slate-900/60 shadow-sm">
