@@ -29,7 +29,8 @@ services:
       - APP_ENV=production
       - DATABASE_URL=postgresql://finpilot:finpilot_password@postgres:5432/finpilot_db
       - CORS_ORIGINS=["*"]
-
+      - LLM_PROVIDER=${LLM_PROVIDER:-gemini}
+      - LLM_MODEL=${LLM_MODEL:-gemini-2.5-flash}
       - GEMINI_API_KEY=${GEMINI_API_KEY:-}
       - OPENAI_API_KEY=${OPENAI_API_KEY:-}
       - EMBEDDING_PROVIDER=local
