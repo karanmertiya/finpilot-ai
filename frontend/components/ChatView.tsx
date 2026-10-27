@@ -20,6 +20,7 @@ import {
 } from 'lucide-react';
 import { api } from '@/lib/api';
 import { ChatMessage, CitationRecord, ToolCallRecord } from '@/lib/types';
+import { MarkdownRenderer } from './MarkdownRenderer';
 
 export const ChatView: React.FC = () => {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
@@ -197,7 +198,11 @@ export const ChatView: React.FC = () => {
                       : 'bg-[#0f182a] border border-[#1e2c45] text-slate-200 rounded-tl-none'
                   }`}
                 >
-                  <div className="whitespace-pre-wrap font-sans text-xs">{msg.content}</div>
+                  {msg.sender === 'assistant' ? (
+                    <MarkdownRenderer content={msg.content} />
+                  ) : (
+                    <div className="whitespace-pre-wrap font-sans text-xs">{msg.content}</div>
+                  )}
 
                   {/* Copy Button */}
                   {msg.sender === 'assistant' && (
