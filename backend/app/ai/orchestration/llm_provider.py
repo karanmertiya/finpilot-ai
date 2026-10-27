@@ -9,12 +9,16 @@ class BaseLLMProvider(ABC):
         pass
 
 class GeminiProvider(BaseLLMProvider):
-    def __init__(self, api_key: str, model: str = "gemini-1.5-flash"):
+    def __init__(self, api_key: str, model: str = "gemini-2.5-flash"):
         self.api_key = api_key
         self.model = model
 
     def generate(self, system_prompt: str, user_prompt: str, tools_data: Optional[Dict[str, Any]] = None) -> str:
-        url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent?key={self.api_key}"
+        url = f"https://generativelanguage.googleapis.com/v1beta/models/{self.model}:generateContent"
+        headers = {
+            "Content-Type": "application/json",
+            "x-goog-api-key": self.api_key
+        }
         
         full_prompt = f"System Instructions:\n{system_prompt}\n\n"
         if tools_data:
@@ -27,7 +31,7 @@ class GeminiProvider(BaseLLMProvider):
         }
         
         try:
-            resp = httpx.post(url, json=payload, timeout=settings.REQUEST_TIMEOUT_SECONDS)
+            resp = httpx.post(url, headers=headers, json=payload, timeout=settings.REQUEST_TIMEOUT_SECONDS)
             if resp.status_code == 200:
                 data = resp.json()
                 candidates = data.get("candidates", [])

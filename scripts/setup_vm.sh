@@ -1,9 +1,10 @@
 #!/bin/bash
 set -e
+export HOME=/root
 export DEBIAN_FRONTEND=noninteractive
 
 echo "=== [1/4] Configuring Git and Docker ==="
-git config --global --add safe.directory '*'
+git config --system --add safe.directory '*' || true
 
 echo "=== [2/4] Pulling Latest FinPilot AI Code ==="
 cd /home/azureuser
