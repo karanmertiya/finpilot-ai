@@ -1,15 +1,18 @@
 const getApiBaseUrl = (): string => {
+  if (typeof window !== 'undefined') {
+    // Under HTTPS (production domain behind Caddy TLS), use unified reverse proxy path
+    if (window.location.protocol === 'https:') {
+      return '/api/v1';
+    }
+    const hostname = window.location.hostname;
+    if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
+      return `http://${hostname}:8000/api/v1`;
+    }
+  }
   if (process.env.NEXT_PUBLIC_API_URL && !process.env.NEXT_PUBLIC_API_URL.includes('localhost')) {
     return process.env.NEXT_PUBLIC_API_URL;
   }
-  if (typeof window !== 'undefined') {
-    const hostname = window.location.hostname;
-    const protocol = window.location.protocol;
-    if (hostname !== 'localhost' && hostname !== '127.0.0.1') {
-      return `${protocol}//${hostname}:8000/api/v1`;
-    }
-  }
-  return process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api/v1';
+  return 'http://localhost:8000/api/v1';
 };
 
 class ApiService {
